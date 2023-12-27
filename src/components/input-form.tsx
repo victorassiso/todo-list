@@ -1,6 +1,6 @@
 import addIcon from '../../public/images/plus.svg'
 
-export function AddNewTask() {
+export function InputForm() {
   return (
     <form className="flex flex-row gap-2">
       <input
@@ -10,7 +10,7 @@ export function AddNewTask() {
       ></input>
       <button
         type="submit"
-        className="justify-content bg-blue-dark flex items-center gap-2 rounded-lg p-4"
+        className="justify-content flex items-center gap-2 rounded-lg bg-blue-dark p-4"
       >
         <span className="text-sm font-bold text-gray-100">Criar</span>
         <img src={addIcon} alt="Plus icon" />

@@ -1,16 +1,23 @@
 import checkboxFalse from '../../public/images/checkboxFalse.svg'
+import checkboxTrue from '../../public/images/checkboxTrue.svg'
 import trash from '../../public/images/trash.svg'
 
-export function Task() {
+export interface TaskProps {
+  name: string
+  status: boolean
+}
+
+export function Task({ name, status }: TaskProps) {
   return (
     <div className="border-1 mt-3 flex flex-row items-start gap-3 rounded-lg border-gray-400 bg-gray-500 p-4 shadow-[0_2px_8px_0_rgba(0,0,0,0.06)]">
       <div>
-        <img className="p-1" src={checkboxFalse} alt="" />
+        {status ? (
+          <img className="p-1" src={checkboxTrue} alt="" />
+        ) : (
+          <img className="p-1" src={checkboxFalse} alt="" />
+        )}
       </div>
-      <p className="text-gray-100">
-        Integer uma interdum massa libero auctor neque rutpis turpis semper.
-        Duis vel sed fames integer.
-      </p>
+      <p className="flex-grow text-gray-100">{name}</p>
       <div>
         <img className="p-1" src={trash} alt="" />
       </div>
