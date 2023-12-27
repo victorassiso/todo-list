@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { v4 as uuid } from 'uuid'
 
 import addIcon from '../../public/images/plus.svg'
+import { ITask } from './task'
 
 interface InputFormProps {
-  addTask: (newTask: { name: string; status: boolean }) => void
+  addTask: (task: ITask) => void
 }
 
 export function InputForm({ addTask }: InputFormProps) {
@@ -12,7 +14,7 @@ export function InputForm({ addTask }: InputFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (taskName.trim() !== '') {
-      addTask({ name: taskName, status: false })
+      addTask({ id: uuid(), name: taskName, status: false })
       setTimeout(() => {
         setTaskName('')
       }, 10)

@@ -7,12 +7,17 @@ import deleteHover from '../../public/images/deleteHover.svg'
 import uncheckedDefault from '../../public/images/uncheckedDefault.svg'
 import uncheckedHover from '../../public/images/uncheckedHover.svg'
 
-export interface TaskProps {
+export interface ITask {
+  id: string
   name: string
   status: boolean
 }
 
-export function Task({ name, status }: TaskProps) {
+export interface TaskProps extends ITask {
+  deleteTask: (id: string) => void
+}
+
+export function Task({ id, name, status, deleteTask }: TaskProps) {
   const [isTaskDone, setIsTaskDone] = useState(status)
 
   return (
@@ -40,7 +45,7 @@ export function Task({ name, status }: TaskProps) {
         {name}
       </p>
       <div>
-        <button type="button">
+        <button type="button" onClick={() => deleteTask(id)}>
           <img className="p-1" src={deleteDefault} alt="" />
         </button>
       </div>
