@@ -13,7 +13,9 @@ export function InputForm({ addTask }: InputFormProps) {
     e.preventDefault()
     if (taskName.trim() !== '') {
       addTask({ name: taskName, status: false })
-      setTaskName('')
+      setTimeout(() => {
+        setTaskName('')
+      }, 10)
     }
   }
   return (
@@ -22,10 +24,12 @@ export function InputForm({ addTask }: InputFormProps) {
         type="text"
         className="flex-grow rounded-lg bg-gray-500 p-4 placeholder-gray-300"
         placeholder="Adicione uma nova tarefa"
+        value={taskName}
         onChange={(e) => setTaskName(e.target.value)}
       ></input>
       <button
         type="submit"
+        onClick={handleSubmit}
         className="justify-content flex items-center gap-2 rounded-lg bg-blue-dark p-4"
       >
         <span className="text-sm font-bold text-gray-100">Criar</span>
