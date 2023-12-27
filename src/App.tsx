@@ -4,11 +4,24 @@ import { useState } from 'react'
 
 import { Header } from './components/header'
 import { InputForm } from './components/input-form'
-import { ITask, TaskProps } from './components/task'
+import { ITask } from './components/task'
 import { TaskList } from './components/task-list'
 
+const initialTasks = [
+  {
+    id: '1',
+    name: 'task 1',
+    status: false,
+  },
+  {
+    id: '2',
+    name: 'task 2',
+    status: true,
+  },
+]
+
 export function App() {
-  const [taskList, setTaskList] = useState<ITask[]>([])
+  const [taskList, setTaskList] = useState<ITask[]>(initialTasks)
 
   const addTask = (newTask: ITask) => {
     setTaskList((taskList) => [...taskList, newTask])
