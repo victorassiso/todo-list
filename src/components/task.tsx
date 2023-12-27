@@ -15,9 +15,16 @@ export interface ITask {
 
 export interface TaskProps extends ITask {
   deleteTask: (id: string) => void
+  changeTaskStatus: (id: string) => void
 }
 
-export function Task({ id, name, status, deleteTask }: TaskProps) {
+export function Task({
+  id,
+  name,
+  status,
+  deleteTask,
+  changeTaskStatus,
+}: TaskProps) {
   const [isTaskDone, setIsTaskDone] = useState(status)
   const [isCheckboxHovered, setIsCheckboxHovered] = useState(false)
   const [deleteImg, setDeleteImg] = useState(deleteDefault)
@@ -37,13 +44,18 @@ export function Task({ id, name, status, deleteTask }: TaskProps) {
     )
   }, [isCheckboxHovered, isTaskDone])
 
+  const handleChangeTaskStatus = () => {
+    changeTaskStatus(id)
+    setIsTaskDone(!isTaskDone)
+  }
+
   return (
     <div className="border-1 mt-3 flex flex-row items-start gap-3 rounded-lg border-gray-400 bg-gray-500 p-4 shadow-[0_2px_8px_0_rgba(0,0,0,0.06)] hover:border-gray-400 hover:bg-gray-400">
       <div className="flex items-center justify-center p-[3.273px]">
         <button
           type="button"
           className="overflow-hidden rounded-full"
-          onClick={() => setIsTaskDone(!isTaskDone)}
+          onClick={() => handleChangeTaskStatus()}
           onMouseEnter={() => setIsCheckboxHovered(true)}
           onMouseLeave={() => setIsCheckboxHovered(false)}
         >
