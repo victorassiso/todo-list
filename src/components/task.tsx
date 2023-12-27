@@ -17,7 +17,7 @@ export function Task({ name, status }: TaskProps) {
           <img className="p-1" src={checkboxFalse} alt="" />
         )}
       </div>
-      <p className="flex-grow text-gray-100">{name}</p>
+      <p className="flex-grow text-sm text-gray-100">{name}</p>
       <div>
         <img className="p-1" src={trash} alt="" />
       </div>

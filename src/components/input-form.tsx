@@ -19,7 +19,7 @@ export function InputForm({ addTask }: InputFormProps) {
     }
   }
   return (
-    <form className="flex flex-row gap-2" onSubmit={handleSubmit}>
+    <form className="flex flex-row gap-2 text-gray-100" onSubmit={handleSubmit}>
       <input
         type="text"
         className="flex-grow rounded-lg bg-gray-500 p-4 placeholder-gray-300"
