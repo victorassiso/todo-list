@@ -7,24 +7,9 @@ import { InputForm } from './components/input-form'
 import { ITask } from './components/task'
 import { TaskList } from './components/task-list'
 
-const initialTaskList = [
-  {
-    id: '1',
-    name: 'task 1',
-    status: false,
-  },
-  {
-    id: '2',
-    name: 'task 2',
-    status: true,
-  },
-]
-
-const initialTasksCreated = 2
-
 export function App() {
-  const [taskList, setTaskList] = useState<ITask[]>(initialTaskList)
-  const [tasksCreated, setTasksCreated] = useState<number>(initialTasksCreated)
+  const [taskList, setTaskList] = useState<ITask[]>([])
+  const [tasksCreated, setTasksCreated] = useState<number>(0)
   const [totalTasks, setTotalTasks] = useState<number>(taskList.length)
 
   const addTask = (newTask: ITask) => {
@@ -51,6 +36,7 @@ export function App() {
       setTasksCreated(tasksCreated + 1)
     }
   }, [taskList])
+
   return (
     <div>
       <Header />

@@ -9,7 +9,6 @@ export function TaskListHeader({
   taskList,
   tasksCreated,
 }: TaskListHeaderProps) {
-  console.log(tasksCreated)
   return (
     <div className="flex flex-row justify-between">
       <div className="mb-3 flex flex-row items-center gap-2.5 font-bold">
